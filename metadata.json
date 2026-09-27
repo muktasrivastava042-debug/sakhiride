@@ -1,0 +1,6 @@
+{
+  "name": "Sakhi Ride - Safe Rides, Strong Women",
+  "description": "Safe, dignified transportation connecting female passengers with 100% verified women drivers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
