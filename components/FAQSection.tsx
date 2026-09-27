@@ -1,31 +1,31 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
-      q: 'Who can ride with Sakhi Ride? Can male family members accompany?',
-      a: 'Sakhi Ride is dedicated exclusively to women travelers and their children (boys up to 12 years of age and girls of any age). To preserve the sanctuary and psychological safety of our women driver partners, adult male passengers are not permitted on regular rides. For family airport transfers, specialized family-certified rides may be booked in advance.',
+      q: 'Who can ride with Sakhi Ride in Varanasi? Can male family members accompany for temple darshan?',
+      a: 'Sakhi Ride is dedicated exclusively to women travelers, female pilgrims, students, and children (boys up to 12 years of age and girls of any age). To preserve the psychological sanctuary and dignity of our female driver partners, unaccompanied adult male passengers are not permitted on regular rides. For families traveling together with elderly parents from Babatpur Airport, specialized Family Pilgrimage vans can be booked in advance.',
     },
     {
-      q: 'How are female driver partners verified before joining?',
-      a: 'Every driver partner must complete our 7-step onboarding process: Aadhaar biometric KYC, government driving license authenticity check, local police station character clearance certificate, commercial driving proficiency test, background address verification, and gender sensitization training.',
+      q: 'Can I pre-book for early morning 4:30 AM Subah-e-Banaras or 7:00 PM Ganga Aarti?',
+      a: 'Yes! Early morning ghat rituals at Assi and evening aarti at Dashashwamedh are our most popular routes. You can schedule rides up to 7 days in advance. A verified local Banaras woman captain is confirmed 45 minutes prior, and stays in communication through masked calling.',
     },
     {
-      q: 'What happens if my driver takes an unexpected detour or I feel unsafe?',
-      a: 'Our algorithmic telemetry monitors live routes 24/7. An unannounced detour of more than 500 meters or an unscheduled stationary stop of over 3 minutes triggers an automatic priority notification to our 24/7 Safety Command Center. You can also tap the In-Ride SOS button to initiate an instant two-way audio bridge with our emergency desk and dispatch local PCR response.',
+      q: 'Can Sakhi Ganga E-Autos navigate narrow alleys near Godowlia and Kashi Vishwanath?',
+      a: 'Absolutely. Our compact electric green autos are specially chosen to maneuver through Varanasi’s historic market streets like Godowlia, Chowk, Maidagin, and Ravindrapuri, dropping you closer to temple entry gates where standard commercial cabs are often restricted.',
     },
     {
-      q: 'Can I book a Sakhi Ride in advance for late night or early morning flights?',
-      a: 'Yes! You can schedule trips up to 7 days in advance. Our algorithm assigns a verified Sakhi Night Guardian driver 45 minutes ahead of schedule and provides her live tracking link, contact proxy, and car registration well in advance.',
+      q: 'How are female driver partners verified with Varanasi Police?',
+      a: 'Every driver partner must complete local police character verification at their neighborhood thana (Chowk, Sigra, Bhelupur, or Dashashwamedh), Aadhaar biometric authentication, government commercial driving license verification, and physical route capability testing.',
     },
     {
-      q: 'How do I join as a female driver partner and what are the typical earnings?',
-      a: 'Women drivers with a valid commercial/private LMV license can register directly through our Driver Partner portal. We provide vehicle EV financing assistance, self-defense workshops, flexible shifts, and driver partners earn between ₹32,000 to ₹48,000 per month with daily payouts.',
+      q: 'How does the UP 1090 Women Power Line & Pink Booth integration protect riders?',
+      a: 'Sakhi Ride is digitally integrated with Varanasi Commissionerate’s safety protocols. Tapping the in-app SOS immediately broadcasts high-precision GPS coordinates to the nearest Pink Police Booth (at Assi, Dashashwamedh, Cantt, or BHU) and the nearest UP 112 PCR patrol van for an immediate response.',
     },
   ];
 
@@ -37,10 +37,10 @@ export function FAQSection() {
             Frequently Asked Questions
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 mt-2 tracking-tight">
-            Everything you need to know about Sakhi Ride
+            Varanasi Travel & Safety FAQs
           </h2>
           <p className="mt-3 text-sm text-slate-600">
-            Clear, transparent answers on safety protocols, passenger policies, and booking procedures.
+            Clear, transparent answers on ghat transit, late night Cantt arrivals, and women-only rider policies.
           </p>
         </div>
 

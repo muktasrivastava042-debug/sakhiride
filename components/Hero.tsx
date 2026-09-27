@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useApp } from '@/context/AppContext';
 import { VEHICLE_FLEET, POPULAR_LOCATIONS, VERIFIED_DRIVERS } from '@/lib/data';
 import {
@@ -9,26 +10,25 @@ import {
   ShieldCheck,
   Clock,
   ArrowRight,
-  Sparkles,
   Car,
-  ChevronRight,
-  PhoneCall,
   CheckCircle2,
-  Users
+  Users,
+  Compass,
+  PhoneCall
 } from 'lucide-react';
 
 export function Hero() {
-  const { addNewRide, setIsBookingModalOpen, setCurrentView, setDashboardTab, setIsSosModalOpen } = useApp();
+  const { addNewRide, setIsBookingModalOpen, setIsSosModalOpen } = useApp();
 
-  const [pickup, setPickup] = useState(POPULAR_LOCATIONS[0]);
-  const [destination, setDestination] = useState(POPULAR_LOCATIONS[2]);
-  const [selectedFleetId, setSelectedFleetId] = useState(VEHICLE_FLEET[0].id);
+  const [pickup, setPickup] = useState(POPULAR_LOCATIONS[1]); // Cantt Station
+  const [destination, setDestination] = useState(POPULAR_LOCATIONS[3]); // Assi Ghat
+  const [selectedFleetId, setSelectedFleetId] = useState(VEHICLE_FLEET[0].id); // Ganga Auto
   const [rideTimeType, setRideTimeType] = useState<'now' | 'schedule'>('now');
 
   const selectedVehicle = VEHICLE_FLEET.find((v) => v.id === selectedFleetId) || VEHICLE_FLEET[0];
   
-  // Dynamic fare calculation based on simulated distance
-  const simulatedDistance = 16.5; // km
+  // Dynamic fare calculation for Varanasi routes
+  const simulatedDistance = 7.4; // km
   const estimatedFare = Math.round(selectedVehicle.baseFare + simulatedDistance * selectedVehicle.ratePerKm);
 
   const handleInstantBook = () => {
@@ -47,7 +47,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-10 pb-20 lg:pt-14 lg:pb-28 bg-gradient-to-b from-orange-50/40 via-[#FFFDFB] to-[#FFFDFB]">
+    <section className="relative overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24 bg-gradient-to-b from-orange-50/50 via-[#FFFDFB] to-[#FFFDFB]">
       {/* Subtle background ambient warm glow */}
       <div
         className="absolute -top-40 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-orange-200/35 to-amber-100/20 rounded-full blur-3xl pointer-events-none"
@@ -59,14 +59,18 @@ export function Hero() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Trust Banner Kicker */}
-        <div className="flex items-center gap-2 text-xs font-semibold text-orange-950 mb-6">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/80 border border-orange-200/80 text-orange-900 font-bold">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#EA580C]" />
-            <span>Women-Only Certified Mobility</span>
+        {/* Trust Banner Kicker for Varanasi */}
+        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-orange-950 mb-6">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/90 border border-orange-200/80 text-orange-900 font-bold">
+            <Compass className="w-3.5 h-3.5 text-[#EA580C]" />
+            <span>Exclusively in Varanasi (Kashi)</span>
           </span>
           <span className="text-slate-400">·</span>
-          <span className="text-slate-600 hidden sm:inline">100% Female Drivers & Female Riders</span>
+          <span className="text-slate-600">100% Female Drivers & Female Riders</span>
+          <span className="text-slate-400">·</span>
+          <Link href="/women-safety" className="text-[#EA580C] hover:underline font-bold">
+            UP 1090 & 112 Integrated
+          </Link>
         </div>
 
         {/* Hero Grid */}
@@ -76,37 +80,44 @@ export function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.08] text-balance">
               Drive by Women.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7A00] to-[#EA580C]">
-                Ride by Women.
+                Ride by Women in Varanasi.
               </span>
             </h1>
 
             <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl text-balance">
-              India’s premier safe transportation platform exclusively connecting women passengers with verified women
-              drivers. Every ride is safeguarded with live police-linked SOS, facial OTP verification, and absolute dignity.
+              Varanasi’s dedicated women-only mobility network. Connecting female pilgrims, BHU scholars, local women, and
+              travelers with 100% verified local women drivers. From morning Ganga Aarti at Assi Ghat to late-night train
+              arrivals at Cantt Station, travel with total peace of mind.
             </p>
 
-            {/* Quick Interactive Ride Estimator Card */}
+            {/* Quick Interactive Ride Estimator Card for Varanasi */}
             <div className="mt-8 bg-white rounded-2xl shadow-xl shadow-orange-500/5 border border-orange-100/80 p-5 sm:p-7">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Fast Ride Estimator</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                    Varanasi Ride Estimator
+                  </span>
                 </div>
                 <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-lg text-xs font-semibold">
                   <button
                     onClick={() => setRideTimeType('now')}
                     className={`px-3 py-1 rounded-md transition-all ${
-                      rideTimeType === 'now' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                      rideTimeType === 'now'
+                        ? 'bg-white text-slate-900 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
-                    Ride Now (3 min)
+                    Ride Now (~2 min)
                   </button>
                   <button
                     onClick={() => setRideTimeType('schedule')}
                     className={`px-3 py-1 rounded-md transition-all ${
-                      rideTimeType === 'schedule' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                      rideTimeType === 'schedule'
+                        ? 'bg-white text-slate-900 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
-                    Schedule Trip
+                    Schedule Aarti / Airport
                   </button>
                 </div>
               </div>
@@ -118,12 +129,12 @@ export function Hero() {
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0 mr-3 ring-4 ring-emerald-100" />
                   <div className="flex-1 min-w-0">
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      Pickup Location
+                      Varanasi Pickup Location
                     </label>
                     <select
                       value={pickup}
                       onChange={(e) => setPickup(e.target.value)}
-                      aria-label="Pickup Location"
+                      aria-label="Varanasi Pickup Location"
                       className="w-full bg-transparent text-sm font-semibold text-slate-900 focus:outline-none truncate cursor-pointer"
                     >
                       {POPULAR_LOCATIONS.map((loc) => (
@@ -140,12 +151,12 @@ export function Hero() {
                   <div className="w-2.5 h-2.5 rounded-full bg-[#EA580C] shrink-0 mr-3 ring-4 ring-orange-100" />
                   <div className="flex-1 min-w-0">
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      Destination Drop
+                      Destination Drop in Kashi
                     </label>
                     <select
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
-                      aria-label="Destination Drop"
+                      aria-label="Destination Drop in Kashi"
                       className="w-full bg-transparent text-sm font-semibold text-slate-900 focus:outline-none truncate cursor-pointer"
                     >
                       {POPULAR_LOCATIONS.map((loc) => (
@@ -160,7 +171,9 @@ export function Hero() {
 
               {/* Vehicle Options Horizontal Bar */}
               <div className="mt-4">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Select Vehicle Type</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                  Select Fleet for Varanasi Roads
+                </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {VEHICLE_FLEET.map((fleet) => {
                     const isSelected = fleet.id === selectedFleetId;
@@ -183,7 +196,7 @@ export function Hero() {
                           <span className="text-xs font-extrabold text-[#EA580C] tabular-nums">
                             ₹{Math.round(fleet.baseFare + simulatedDistance * fleet.ratePerKm)}
                           </span>
-                          <span className="text-[10px] text-slate-500 tabular-nums">{fleet.etaMins}m</span>
+                          <span className="text-[10px] text-slate-500 tabular-nums">~{fleet.etaMins}m</span>
                         </div>
                       </button>
                     );
@@ -196,11 +209,11 @@ export function Hero() {
                 <div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-2xl font-black text-slate-900 tabular-nums">₹{estimatedFare}</span>
-                    <span className="text-xs text-slate-500 font-medium">approx. {simulatedDistance} km</span>
+                    <span className="text-xs text-slate-500 font-medium">approx. {simulatedDistance} km in Varanasi</span>
                   </div>
                   <p className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
                     <CheckCircle2 className="w-3 h-3" />
-                    <span>Fixed upfront price · Zero surge guarantee</span>
+                    <span>Fixed upfront meter fare · Zero surge pricing</span>
                   </p>
                 </div>
 
@@ -209,26 +222,26 @@ export function Hero() {
                     onClick={handleInstantBook}
                     className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#FF7A00] to-[#EA580C] hover:from-[#EA580C] hover:to-[#C2410C] text-white text-xs font-bold rounded-xl shadow-md shadow-orange-500/20 hover:shadow-lg transition-all active:scale-[0.98] whitespace-nowrap"
                   >
-                    <span>Confirm & Book Ride</span>
+                    <span>Confirm Varanasi Ride</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Social Trust Metrics */}
+            {/* Varanasi Social Trust Metrics */}
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-slate-200/70 pt-6">
               <div>
                 <p className="text-xl sm:text-2xl font-black text-slate-900 tabular-nums">100%</p>
-                <p className="text-xs text-slate-500 mt-0.5">Female Drivers</p>
+                <p className="text-xs text-slate-500 mt-0.5">Banaras Female Drivers</p>
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-black text-slate-900 tabular-nums">4.97 ★</p>
-                <p className="text-xs text-slate-500 mt-0.5">Safety Rating</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900 tabular-nums">4.98 ★</p>
+                <p className="text-xs text-slate-500 mt-0.5">Pilgrim & Student Rating</p>
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-black text-slate-900 tabular-nums">&lt; 10s</p>
-                <p className="text-xs text-slate-500 mt-0.5">Live Police SOS Sync</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900 tabular-nums">1090 / 112</p>
+                <p className="text-xs text-slate-500 mt-0.5">UP Police Live Sync</p>
               </div>
             </div>
           </div>
@@ -236,21 +249,20 @@ export function Hero() {
           {/* Right Column: Live Simulated Visual Carrier */}
           <div className="lg:col-span-5 relative">
             {/* Framed Visual Dashboard Card */}
-            <div className="relative bg-slate-900 rounded-3xl p-6 text-white shadow-2xl border border-slate-800 overflow-hidden">
+            <div className="relative bg-slate-950 rounded-3xl p-6 text-white shadow-2xl border border-slate-800 overflow-hidden">
               {/* Top Bar inside card */}
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-bold text-slate-200">LIVE RIDE TELEMETRY</span>
+                  <span className="text-xs font-bold text-slate-200">KASHI RIDE TELEMETRY</span>
                 </div>
                 <div className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800/80 px-2.5 py-0.5 rounded-md">
-                  Triple Shield Active
+                  Assi Pink Booth Synced
                 </div>
               </div>
 
-              {/* Stylized Vector Route Canvas */}
+              {/* Stylized Vector Route Canvas: Cantt to Assi Ghat via Godowlia */}
               <div className="relative my-5 h-44 rounded-2xl bg-slate-950 border border-slate-800/80 overflow-hidden p-3">
-                {/* Stylized Map Grid Lines */}
                 <div
                   className="absolute inset-0 opacity-15"
                   style={{
@@ -259,18 +271,18 @@ export function Hero() {
                   }}
                 />
 
-                {/* Curved Route Path SVG */}
+                {/* Curved Route Path SVG representing Varanasi Ghat corridor */}
                 <svg className="w-full h-full" viewBox="0 0 320 140" fill="none">
                   {/* Road Base */}
                   <path
-                    d="M 20 110 C 80 110, 110 30, 200 40 C 260 50, 270 100, 300 95"
+                    d="M 20 110 C 70 110, 110 30, 190 40 C 250 50, 260 100, 300 95"
                     stroke="#334155"
                     strokeWidth="8"
                     strokeLinecap="round"
                   />
                   {/* Active Route Glowing Polyline */}
                   <path
-                    d="M 20 110 C 80 110, 110 30, 200 40 C 260 50, 270 100, 300 95"
+                    d="M 20 110 C 70 110, 110 30, 190 40 C 250 50, 260 100, 300 95"
                     stroke="#F97316"
                     strokeWidth="3.5"
                     strokeDasharray="6 4"
@@ -278,20 +290,20 @@ export function Hero() {
                     className="animate-pulse"
                   />
 
-                  {/* Pickup Marker */}
+                  {/* Cantt Pickup Marker */}
                   <g transform="translate(20, 110)">
                     <circle r="7" fill="#10B981" />
                     <circle r="3" fill="#FFFFFF" />
                   </g>
 
-                  {/* Driver Position (Moving along path) */}
+                  {/* Driver Position (Moving through Sigra / Godowlia) */}
                   <g transform="translate(180, 38)">
                     <circle r="12" fill="#EA580C" opacity="0.3" className="animate-ping" />
                     <circle r="8" fill="#F97316" />
                     <circle r="4" fill="#FFFFFF" />
                   </g>
 
-                  {/* Destination Marker */}
+                  {/* Assi Ghat Destination Marker */}
                   <g transform="translate(300, 95)">
                     <circle r="8" fill="#EA580C" />
                     <circle r="4" fill="#FFFFFF" />
@@ -300,11 +312,11 @@ export function Hero() {
 
                 {/* Floating ETA Badge */}
                 <div className="absolute top-3 right-3 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-lg px-2.5 py-1 text-[11px] font-bold text-orange-400">
-                  Driver arriving in 3 mins
+                  Captain Shanti: ~2 mins away
                 </div>
 
                 <div className="absolute bottom-2 left-3 text-[10px] text-slate-400 font-mono">
-                  GPS: 28.5355° N, 77.2090° E · Encrypted
+                  Assi Ghat Corridor · UP 65 BT 1088
                 </div>
               </div>
 
@@ -317,16 +329,16 @@ export function Hero() {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-bold text-white truncate">Sunita Devi</h4>
+                      <h4 className="text-sm font-bold text-white truncate">Shanti Devi</h4>
                       <span className="text-xs font-bold text-amber-400 flex items-center gap-1">
-                        ★ 4.98
+                        ★ 4.99
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300 font-medium">Tata Tigor EV · White</p>
+                    <p className="text-xs text-slate-300 font-medium">Mahindra Treo EV Auto · Varanasi Green</p>
                     <div className="flex items-center gap-2 mt-1 text-[11px] text-slate-400">
-                      <span className="font-mono text-orange-300 font-bold">DL 01 AB 4421</span>
+                      <span className="font-mono text-orange-300 font-bold">UP 65 BT 1088</span>
                       <span>·</span>
-                      <span className="text-emerald-400 font-medium">Police Cleared</span>
+                      <span className="text-emerald-400 font-medium">Chowk Thana Verified</span>
                     </div>
                   </div>
                 </div>
@@ -335,7 +347,7 @@ export function Hero() {
                 <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] uppercase font-bold text-slate-400 block">Ride OTP</span>
-                    <span className="text-base font-black tracking-widest text-emerald-400 font-mono">4821</span>
+                    <span className="text-base font-black tracking-widest text-emerald-400 font-mono">5812</span>
                   </div>
 
                   <div className="flex items-center gap-2">
@@ -346,16 +358,13 @@ export function Hero() {
                       <ShieldCheck className="w-3.5 h-3.5" />
                       <span>Test SOS</span>
                     </button>
-                    <button
-                      onClick={() => {
-                        setCurrentView('dashboard');
-                        setDashboardTab('track');
-                      }}
+                    <Link
+                      href="/rides"
                       className="px-3 py-1.5 bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold rounded-lg transition-colors flex items-center gap-1"
                     >
                       <span>Track Live</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -364,20 +373,20 @@ export function Hero() {
               <div className="mt-4 flex items-center justify-between text-[11px] text-slate-400">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Audio SOS & Masked Number</span>
+                  <span>UP 1090 Women Power Line Synced</span>
                 </span>
-                <span className="text-slate-500">Zero Surge Policy</span>
+                <span className="text-slate-500">Zero Surge in Kashi</span>
               </div>
             </div>
 
-            {/* Floating Trust Card Decor */}
+            {/* Floating Varanasi Pink Booth Trust Card */}
             <div className="hidden sm:flex absolute -bottom-6 -left-6 bg-white p-3.5 rounded-2xl shadow-xl border border-orange-100 items-center gap-3 max-w-xs animate-in fade-in duration-300">
               <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#EA580C] flex items-center justify-center shrink-0">
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-900">4,200+ Verified Women Drivers</p>
-                <p className="text-[11px] text-slate-500">Background checked with Delhi & Cyber Cell</p>
+                <p className="text-xs font-bold text-slate-900">450+ Varanasi Women Captains</p>
+                <p className="text-[11px] text-slate-500">Chowk, Sigra & Bhelupur Thana background cleared</p>
               </div>
             </div>
           </div>

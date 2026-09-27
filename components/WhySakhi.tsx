@@ -1,30 +1,30 @@
 'use client';
 
 import React from 'react';
-import { HeartHandshake, ShieldCheck, TrendingUp, Sparkles, Quote } from 'lucide-react';
+import { HeartHandshake, ShieldCheck, TrendingUp, Quote } from 'lucide-react';
 
 export function WhySakhi() {
   const impactStories = [
     {
-      rider: 'Dr. Aarushi Mehta',
-      role: 'Emergency Medicine Registrar, Safdarjung Hospital',
-      city: 'New Delhi',
+      rider: 'Dr. Sunanda Misra',
+      role: 'Emergency Medicine Resident, IMS-BHU (Sir Sunderlal Hospital)',
+      location: 'Lanka & BHU Campus',
       comment:
-        'Finishing a 14-hour ER shift at 3:30 AM used to be filled with anxiety. With Sakhi Ride, seeing a verified woman driver outside the hospital gate brings an immediate sense of relief and calm.',
+        'Finishing a 14-hour emergency shift at 2:30 AM used to be filled with dread about finding safe transit back to my hostel in Lanka. Seeing Captain Aarti waiting right outside the hospital gate is a true blessing for female healthcare workers in Kashi.',
     },
     {
-      rider: 'Tanya Sengupta',
-      role: 'Product Lead & Mother',
-      city: 'Gurugram',
+      rider: 'Ananya Roy',
+      role: 'Solo Cultural Traveler & Photographer',
+      location: 'Assi Ghat & Godowlia',
       comment:
-        'I send my 17-year-old daughter to tuition and tennis practice exclusively via Sakhi. The driver details, facial verification, and live tracking mean I never have to worry about her safety.',
+        'Experiencing the 7:00 PM Ganga Aarti at Dashashwamedh as a solo female traveler was a spiritual dream. Having Shanti ji pick me up in her green e-auto with fixed meter pricing meant zero haggling, zero staring, and absolute dignity.',
     },
     {
-      rider: 'Shabana Parveen',
-      role: 'Sakhi Fleet Captain & Mother of 3',
-      city: 'Noida',
+      rider: 'Shanti Devi',
+      role: 'Assi Ghat Fleet Captain & Mother',
+      location: 'Assi, Varanasi',
       comment:
-        'Driving with Sakhi gave me dignity and financial freedom. I earn ₹42,000 every month on my own terms, and all my passengers treat me with immense sisterhood and respect.',
+        'Driving with Sakhi gave me honor in my own city. I earn over ₹38,000 every month on my own terms. My daughter is completing her Masters in Zoology at BHU because of this wheel.',
     },
   ];
 
@@ -35,16 +35,16 @@ export function WhySakhi() {
           {/* Left Column: Mission & Impact */}
           <div className="lg:col-span-6">
             <p className="text-xs font-bold uppercase tracking-widest text-[#EA580C]">
-              The Sakhi Movement
+              The Varanasi Sakhi Movement
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 mt-2 tracking-tight leading-tight text-balance">
-              More than a ride. A movement for female freedom & dignity.
+              More than a ride. Sacred freedom & dignity for women in Kashi.
             </h2>
 
             <p className="mt-5 text-base text-slate-600 leading-relaxed text-balance">
-              For decades, public and app-based urban mobility failed women—either through compromised safety or a complete
-              absence of female drivers. Sakhi Ride bridges this divide by turning transportation into an ecosystem of
-              mutual trust, financial independence, and collective empowerment.
+              In the sacred city of Varanasi, women have always contributed to culture, education, and devotion—yet
+              traditional transit often failed their safety needs after dark. Sakhi Ride bridges this divide by turning
+              transportation into an ecosystem of mutual trust, financial independence, and collective empowerment.
             </p>
 
             {/* Impact Metric Rows */}
@@ -54,9 +54,10 @@ export function WhySakhi() {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Zero Harassment Tolerance</h4>
+                  <h4 className="text-sm font-bold text-slate-900">Zero Harassment Sanctuary</h4>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    100% of driver partners and riders are verified women, creating an unprecedented safe zone.
+                    100% of driver partners and riders are verified women, creating an unprecedented safe zone across the
+                    ghats.
                   </p>
                 </div>
               </div>
@@ -66,9 +67,9 @@ export function WhySakhi() {
                   <TrendingUp className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Economic Dignity & Fair Earnings</h4>
+                  <h4 className="text-sm font-bold text-slate-900">Economic Dignity for Banaras Women</h4>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Driver partners retain up to 88% of ride fares—highest in the country—with micro-insurance and EV subsidy support.
+                    Driver partners retain up to 88% of ride fares—highest in Uttar Pradesh—with subsidized EV auto leases.
                   </p>
                 </div>
               </div>
@@ -78,16 +79,16 @@ export function WhySakhi() {
                   <HeartHandshake className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Empowering Night Economy</h4>
+                  <h4 className="text-sm font-bold text-slate-900">Protecting Night & Morning Ghat Pilgrims</h4>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Women doctors, nurses, aviation crew, and shift workers travel after midnight with absolute peace of mind.
+                    From 4:30 AM Subah-e-Banaras morning prayers to midnight Cantt train arrivals, women travel with peace of mind.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Authentic Stories */}
+          {/* Right Column: Authentic Varanasi Stories */}
           <div className="lg:col-span-6 space-y-5">
             {impactStories.map((story, idx) => (
               <div
@@ -104,7 +105,7 @@ export function WhySakhi() {
                     <p className="font-bold text-slate-900">{story.rider}</p>
                     <p className="text-[11px] text-slate-500">{story.role}</p>
                   </div>
-                  <span className="text-slate-400 font-medium">{story.city}</span>
+                  <span className="text-[#EA580C] font-semibold">{story.location}</span>
                 </div>
               </div>
             ))}

@@ -1,65 +1,71 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useApp } from '@/context/AppContext';
-import { ShieldCheck, PhoneCall, Lock, Moon, Radio, CheckCircle, AlertTriangle, Eye } from 'lucide-react';
+import { ShieldCheck, PhoneCall, Lock, Moon, Radio, CheckCircle, AlertTriangle, ArrowRight } from 'lucide-react';
 
 export function SafetyShield() {
   const { setIsSosModalOpen } = useApp();
 
   const safetyPillars = [
     {
-      title: '100% Female Drivers with Police Clearance',
+      title: '100% Female Drivers with Local Thana Clearance',
       description:
-        'Every Sakhi driver partner undergoes rigorous 7-tier verification: Aadhaar biometric verification, police criminal history clearance, in-person driving capability test, and empathy training.',
-      stat: '7-Step Audit',
+        'Every Varanasi driver partner undergoes strict verification: local police station character certificate (Chowk, Sigra, Bhelupur, or Dashashwamedh Thana), biometric Aadhaar KYC, and commercial driving proficiency.',
+      stat: 'Local Police Cleared',
       icon: ShieldCheck,
-      highlightColor: 'from-orange-500 to-amber-500',
     },
     {
-      title: 'Direct 112 & Women Helpline 1091 SOS',
+      title: 'Direct UP 1090 & 112 Police Integration',
       description:
-        'One-touch emergency trigger directly broadcasts live GPS coordinates, driver identity, and vehicle telemetry to local PCR response vans and your personal emergency contacts.',
-      stat: 'Under 10s Dispatch',
+        'One-touch emergency trigger directly broadcasts live GPS coordinates and vehicle telemetry to local Varanasi Commissionerate PCR vans, nearest Pink Booths, and your personal emergency contacts.',
+      stat: 'Under 6 Min Target',
       icon: Radio,
-      highlightColor: 'from-red-500 to-rose-600',
     },
     {
       title: 'Encrypted In-App Calling & Zero Number Exposure',
       description:
-        'Your mobile number is never displayed to driver partners or third parties. All pre-ride communications route through secure masked VoIP proxies to safeguard your personal identity.',
-      stat: '100% Private',
+        'Your personal mobile number is never displayed to driver partners or third parties. All pre-ride communications route through secure masked VoIP proxies to safeguard your personal identity.',
+      stat: '100% Identity Shield',
       icon: Lock,
-      highlightColor: 'from-blue-600 to-indigo-600',
     },
     {
-      title: 'Night Guardian & Doorstep Escort Protocol',
+      title: 'Night Suraksha & Doorstep Escort (8 PM – 6 AM)',
       description:
-        'For rides between 8:00 PM and 6:00 AM, drivers are instructed to keep headlights illuminated and stay stationary until you safely unlock and enter your building or residence gate.',
+        'For midnight train arrivals at Varanasi Cantt, Babatpur airport drops, or late-night hospital shifts at IMS-BHU, drivers keep headlights illuminated and wait until you safely enter your residential gate or hotel lobby.',
       stat: '8 PM – 6 AM Escort',
       icon: Moon,
-      highlightColor: 'from-purple-600 to-indigo-700',
     },
   ];
 
   return (
     <section id="safety-protocol" className="py-20 lg:py-28 bg-white border-y border-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header with Human Editorial Title */}
-        <div className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#EA580C]">
-            Uncompromising Security Standard
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 mt-2 tracking-tight text-balance">
-            The Sakhi Triple-Shield Safety Architecture
-          </h2>
-          <p className="mt-4 text-base text-slate-600 leading-relaxed text-balance">
-            Safety isn’t a marketing checkbox—it is the foundational reason Sakhi Ride exists. Every single trip, vehicle,
-            and driver is monitored through an uncompromising system engineered exclusively for women.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#EA580C]">
+              Varanasi Security Standard
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 mt-2 tracking-tight text-balance">
+              The Kashi Triple-Shield Safety Architecture
+            </h2>
+            <p className="mt-4 text-base text-slate-600 leading-relaxed text-balance">
+              Engineered specifically for Varanasi’s vibrant ghats, university corridors, and train terminals. Every single
+              trip is guarded by physical and digital safety systems.
+            </p>
+          </div>
+
+          <Link
+            href="/women-safety"
+            className="inline-flex items-center gap-2 text-xs font-bold text-[#EA580C] hover:text-[#C2410C]"
+          >
+            <span>Explore Helplines & Pink Booths</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* 4 Pillars Grid (Asymmetric Bento Hierarchy) */}
+        {/* 4 Pillars Grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {safetyPillars.map((pillar, idx) => {
             const Icon = pillar.icon;
@@ -88,7 +94,7 @@ export function SafetyShield() {
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                   <span className="flex items-center gap-1.5 font-medium">
                     <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Active on all routes</span>
+                    <span>Active on all Varanasi routes</span>
                   </span>
                   <span className="font-mono text-[11px] text-slate-400">Pillar 0{idx + 1}</span>
                 </div>
@@ -109,7 +115,7 @@ export function SafetyShield() {
             </h3>
             <p className="mt-2 text-sm text-slate-300 leading-relaxed">
               Test how the emergency protocol works without triggering actual police dispatch. Review real-time coordinate
-              sharing, automatic emergency SMS broadcasts, and two-way audio monitoring.
+              sharing, automatic emergency SMS broadcasts, and two-way audio monitoring across Varanasi.
             </p>
           </div>
 

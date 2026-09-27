@@ -3,7 +3,7 @@
 import React from 'react';
 import { useApp } from '@/context/AppContext';
 import { VEHICLE_FLEET } from '@/lib/data';
-import { Check, ShieldCheck, Zap, Users, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 
 export function FleetSection() {
   const { setIsBookingModalOpen } = useApp();
@@ -13,20 +13,20 @@ export function FleetSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-widest text-[#EA580C]">
-            Tailored For Every Journey
+            Tailored For Varanasi Roads & Holy Ghats
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 mt-2 tracking-tight">
             Transparent Fleet & Safety Amenities
           </h2>
           <p className="mt-3 text-base text-slate-600 leading-relaxed text-balance">
-            Whether it’s a quick hop to the metro station or a midnight airport pickup, select the ideal vehicle category.
-            Zero hidden charges, zero surge pricing on essential hours, and guaranteed women drivers across all fleets.
+            Whether it’s an e-auto through Godowlia to the Ganga aarti, a BHU campus commute, or a midnight Babatpur airport
+            transfer, select the ideal vehicle category. Zero surge pricing and guaranteed Banaras women captains.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {VEHICLE_FLEET.map((fleet) => {
-            const isNightGuardian = fleet.id === 'sakhi-guardian';
+            const isNightGuardian = fleet.id === 'sakhi-night-suraksha';
             return (
               <div
                 key={fleet.id}

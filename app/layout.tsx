@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import { Plus_Jakarta_Sans, Outfit } from 'next/font/google';
 import './globals.css';
+import { ClientProviders } from '@/components/ClientProviders';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -15,17 +16,20 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Sakhi Ride - Safe Rides, Strong Women',
-  description: 'Safe, dignified transportation connecting female passengers with 100% verified women drivers.',
+  title: 'Sakhi Ride Varanasi - Safe Rides, Strong Women | Kashi',
+  description:
+    'Varanasi’s premier safe transportation platform connecting female passengers with 100% verified women drivers. Holy Ghats, BHU, Cantt Station, and Babatpur Airport safe transit.',
   openGraph: {
-    title: 'Sakhi Ride - Safe Rides, Strong Women',
-    description: 'Safe, dignified transportation connecting female passengers with 100% verified women drivers.',
+    title: 'Sakhi Ride Varanasi - Safe Rides, Strong Women | Kashi',
+    description:
+      'Varanasi’s premier safe transportation platform connecting female passengers with 100% verified women drivers.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sakhi Ride - Safe Rides, Strong Women',
-    description: 'Safe, dignified transportation connecting female passengers with 100% verified women drivers.',
+    title: 'Sakhi Ride Varanasi - Safe Rides, Strong Women | Kashi',
+    description:
+      'Varanasi’s premier safe transportation platform connecting female passengers with 100% verified women drivers.',
   },
 };
 
@@ -33,7 +37,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`scroll-smooth ${plusJakartaSans.variable} ${outfit.variable}`}>
       <body className="min-h-screen bg-[#FFFDFB] text-slate-900 antialiased selection:bg-orange-500 selection:text-white" suppressHydrationWarning>
-        {children}
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

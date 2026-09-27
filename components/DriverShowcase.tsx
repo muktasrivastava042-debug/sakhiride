@@ -1,12 +1,13 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useApp } from '@/context/AppContext';
 import { VERIFIED_DRIVERS, DriverProfile } from '@/lib/data';
-import { ShieldCheck, Star, Award, Car, CheckCircle2, ChevronRight, MessageSquare, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Star, Award, Car, CheckCircle2, ChevronRight, MessageSquare, ArrowRight, MapPin } from 'lucide-react';
 
 export function DriverShowcase() {
-  const { setSelectedDriver, setIsBookingModalOpen, setCurrentView, setDashboardTab } = useApp();
+  const { setSelectedDriver, setIsBookingModalOpen } = useApp();
 
   return (
     <section id="verified-drivers" className="py-20 lg:py-28 bg-[#FFFDFB]">
@@ -15,27 +16,24 @@ export function DriverShowcase() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-widest text-[#EA580C]">
-              Empowered & Professional Pilots
+              Empowered Banaras Women on Wheels
             </p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 mt-2 tracking-tight">
-              Meet Our Verified Women Drivers
+              Meet Our Verified Varanasi Women Captains
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed text-balance">
-              Not just drivers, but guardians of safety and pioneers of financial independence. Every captain is
-              extensively background-verified, emergency-trained, and committed to dignity in mobility.
+              Not just drivers, but guardians of safety and pioneers of financial independence in Kashi. Every captain is
+              verified by local police stations, trained in self-defense, and committed to dignity in mobility.
             </p>
           </div>
 
-          <button
-            onClick={() => {
-              setCurrentView('dashboard');
-              setDashboardTab('drivers');
-            }}
+          <Link
+            href="/rides"
             className="inline-flex items-center gap-2 text-xs font-bold text-[#EA580C] hover:text-[#C2410C] transition-colors"
           >
-            <span>View All Drivers in Dashboard</span>
+            <span>View All Drivers in Rides Hub</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Driver Profiles Cards Grid */}
@@ -58,7 +56,10 @@ export function DriverShowcase() {
                       </div>
                       <div>
                         <h3 className="text-base font-bold text-slate-900 leading-snug">{driver.name}</h3>
-                        <p className="text-xs text-slate-500">{driver.experienceYears} Years Driving</p>
+                        <p className="text-xs text-slate-500 flex items-center gap-1">
+                          <MapPin className="w-3 h-3 text-[#EA580C]" />
+                          <span>{driver.locationArea.split('&')[0]}</span>
+                        </p>
                       </div>
                     </div>
 

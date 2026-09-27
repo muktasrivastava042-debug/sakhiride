@@ -1,0 +1,16 @@
+{
+  "name": "Sakhi Ride Varanasi",
+  "short_name": "Sakhi Ride",
+  "description": "Safe, dignified transportation connecting female passengers with 100% verified women drivers in Varanasi.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFDFB",
+  "theme_color": "#EA580C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
